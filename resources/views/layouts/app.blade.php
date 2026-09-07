@@ -1,97 +1,46 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>@yield('titulo', 'Mi Dashboard') - Seminario Laravel</title>
-<!-- Bootstrap 5 CDN -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- Font Awesome (íconos) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<!-- Chart.js (para gráficos) -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<style>
-    body {
-        background-color: #f8f9fc;
-    }
-    .sidebar {
-        min-height: 100vh;
-        background-color: #4e73df;
-        background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
-        color: white;
-    }
-    .sidebar .nav-link {
-        color: rgba(255, 255, 255, 0.8);
-    }
-    .sidebar .nav-link:hover {
-        color: white;
-    }
-    .sidebar .nav-link.active {
-        font-weight: bold;
-        color: white;
-    }
-    .card-stats {
-        border-left: 4px solid #4e73df;
-    }
-    .card-stats .card-body {
-        padding: 1rem 1.5rem;
-    }
-    .icon-circle {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-</style>
-</head>
-<body>
-<div class="container-fluid">
-<div class="row">
-<!-- Sidebar -->
-<nav class="col-md-2 d-md-block sidebar p-0">
-<div class="position-sticky pt-3">
-<h5 class="text-center py-3 border-bottom border-light">📊 Seminario</h5>
-<ul class="nav flex-column">
-<li class="nav-item">
-<a class="nav-link active" href="{{ url('/dashboard') }}">
-<i class="fas fa-tachometer-alt me-2"></i> Dashboard
-</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#">
-<i class="fas fa-users me-2"></i> Usuarios
-</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#">
-<i class="fas fa-cog me-2"></i> Configuración
-</a>
-</li>
-</ul>
-</div>
-</nav>
-        <!-- Contenido principal -->
-        <main class="col-md-10 ms-sm-auto px-md-4">
-            <!-- Navbar superior -->
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">@yield('titulo_pagina', 'Panel de Control')</h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <span class="badge bg-primary">Bienvenido, {{ 'Estudiante' }}</span>
-                </div>
+        <title>Paraíso Distribuciones - ERP</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="font-sans antialiased bg-gray-100 dark:bg-gray-900">
+        <div class="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col justify-between">
+            <div>
+                @include('layouts.navigation')
+
+                <!-- Page Heading -->
+                @if (isset($header))
+                    <header class="bg-white dark:bg-gray-800 shadow">
+                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                            {{ $header }}
+                        </div>
+                    </header>
+                @endif
+
+                <!-- Page Content -->
+                <main>
+                    {{ $slot }}
+                </main>
             </div>
 
-            <!-- Aquí se inyectará el contenido de cada página -->
-            @yield('contenido')
-        </main>
-    </div>
-</div>
-
-<!-- Scripts de Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>     
-@stack('scripts') 
-</body> 
+            <!-- Footer Corporativo -->
+            <footer class="bg-slate-900 text-white text-center py-4 mt-10 text-sm">
+                <p>&copy; {{ date('Y') }} <strong>Paraíso Distribuciones S.A.S.</strong> - Todos los derechos reservados. | Sistema ERP v1.0</p>
+            </footer>
+        </div>
+    </body>
 </html>

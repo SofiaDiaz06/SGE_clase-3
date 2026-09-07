@@ -34,3 +34,57 @@ En esta sección se detalla el proceso de configuración del entorno de desarrol
 * **APP_ENV**: Establece el entorno de ejecución (`local` o `production`)[cite: 2].
 * **APP_DEBUG**: Activa o desactiva el modo de depuración de errores (`true`/`false`)[cite: 2].
 * **DB_CONNECTION / DB_HOST / DB_DATABASE**: Configuran el motor, el host (`mysql` al usar Sail) y el nombre de la base de datos[cite: 2].
+
+## Clase 4
+# Sistema ERP - Paraíso Distribuciones S.A.S.
+
+Plataforma web para la gestión integral y control centralizado de inventarios, catálogo de productos, clientes y ventas corporativas de papelería al por mayor.
+
+---
+
+## 📸 Captura de Pantalla - Landing Page
+
+![Landing Page - Paraíso Distribuciones S.A.S.](docs/visual/captura1.png)
+
+---
+
+## 🎨 Explicación de los Cambios Visuales Realizados
+
+1. **Página de Bienvenida (`resources/views/welcome.blade.php`):**
+   - Implementación de un encabezado *Hero* con fondo azul corporativo (`bg-slate-900`) y llamado a la acción destacado.
+   - Creación de tarjetas informativas para presentar los módulos clave del sistema (Inventario, Clientes y Ventas).
+
+2. **Módulo de Autenticación (`login.blade.php`, `register.blade.php`, `guest.blade.php`):**
+   - Rediseño de formularios con campos centrados, bordes suaves e íconos interactivos en los *inputs*.
+   - Inclusión de la marca e isotipo corporativo en la cabecera del formulario para dar identidad visual.
+
+3. **Navegación Principal (`resources/views/layouts/app.blade.php`):**
+   - Barra de menú superior fija en color azul noche con enlaces directos e íconos intuitivos para cada módulo (*Dashboard*, *Productos*, *Categorías*, *Clientes*, *Ventas*).
+   - Menú desplegable personalizado para el usuario administrador.
+
+4. **Panel de Control (`resources/views/dashboard.blade.php`):**
+   - Implementación de métricas tipo *KPI* en una cuadrícula responsiva (Total Productos, Total Clientes, Ventas del Día y Alerta de Bajo Stock).
+   - Indicadores visuales claros con íconos de estado y resaltado de alertas en tono rojo.
+
+5. **Formulario de Productos (`resources/views/products/index.blade.php`):**
+   - Vista estructurada en dos columnas dentro del layout principal con campos para nombre, categoría, precio y stock inicial.
+
+---
+
+## 🎨 Paleta de Colores Utilizada
+
+* **Azul Corporativo Principal:** `#0f172a` / `#1e293b` (`bg-slate-900`, `bg-slate-800`) – Transmite seriedad y elegancia institucional.
+* **Amarillo / Dorado de Acento:** `#f59e0b` (`bg-amber-500`, `text-amber-400`) – Para botones de acción principal, resaltados y logotipo.
+* **Fondo de Interfaz:** `#f8fafc` (`bg-slate-50`) – Gris ultraclaro que garantiza un alto contraste y descansada lectura.
+* **Verde Éxito:** `#10b981` (`emerald-600`) – Indicadores positivos de clientes e ingresos.
+* **Rojo Alerta:** `#e11d48` (`rose-600`) – Para resaltar ítems con stock crítico o advertencias.
+
+---
+
+## 🛠️ Fuentes y Recursos Utilizados
+
+* **Framework Base:** [Laravel 11](https://laravel.com/) con el paquete starter [Laravel Breeze](https://laravel.com/docs/breeze).
+* **Motor de Plantillas:** Laravel Blade.
+* **Framework de CSS:** [Tailwind CSS](https://tailwindcss.com/) (clases de utilidades integradas).
+* **Tipografía:** *Figtree* (fuente sans-serif moderna incluida por defecto en Breeze).
+* **Iconografía:** [Font Awesome 6 Free](https://fontawesome.com/) (importado vía CDN en la cabecera del layout principal).
