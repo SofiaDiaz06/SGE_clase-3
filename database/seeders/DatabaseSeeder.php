@@ -15,11 +15,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        // Usuario de prueba por defecto de Laravel
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+        ]);
+
+        // Llamamos a los seeders personalizados de tu ERP de papelería en orden
+        $this->call([
+            CategorySeeder::class,
+            ClientSeeder::class,
+            ProductSeeder::class,
         ]);
     }
 }

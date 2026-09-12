@@ -10,7 +10,9 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('name', 100); // O 'nombre' si prefieres mantenerlo en español
+            $table->text('description')->nullable();
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }
