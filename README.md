@@ -88,3 +88,16 @@ Plataforma web para la gestión integral y control centralizado de inventarios, 
 * **Framework de CSS:** [Tailwind CSS](https://tailwindcss.com/) (clases de utilidades integradas).
 * **Tipografía:** *Figtree* (fuente sans-serif moderna incluida por defecto en Breeze).
 * **Iconografía:** [Font Awesome 6 Free](https://fontawesome.com/) (importado vía CDN en la cabecera del layout principal).
+
+# Guía 5 - ERP Paraíso Distribuciones S.A.S.
+
+## Evidencias de la práctica:
+
+### 1. Tablas en MySQL
+![Tablas MySQL](Clase5/CAPTURA1.png)
+
+### 2. Datos poblados (Seeders)
+![Seeders](Clase5/CAPTURA2.png)
+
+### 3. Prueba en Tinker (Relación 1:N)
+![Tinker](Clase5/CAPTURA3.png)
